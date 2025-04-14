@@ -9,13 +9,12 @@ jobs:
         name: Deploying everything to the staging cluster
 
         steps:
-             name: SSH Into server
-             run: |
-                  echo ${{ secrets.SSH_PRIVATE_KEY }} &> ~/ssh_key
-                  ssh -i ~/ssh_key ubuntu@13.60.18.201
-                  cd myapp/ && git pull
-                  pnpm install
-                  pnpm run build
-                  pm2 restart fe-server
-                  pm2 restart http
-                  pm2 restart ws
+           - run: |
+                echo ${{ secrets.SSH_PRIVATE_KEY }} &> ~/ssh_key
+                ssh -i ~/ssh_key ubuntu@13.60.18.201
+                cd myapp/ && git pull
+                pnpm install
+                pnpm run build
+                pm2 restart fe-server
+                pm2 restart http
+                pm2 restart ws
