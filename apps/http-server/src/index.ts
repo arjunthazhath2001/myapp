@@ -27,4 +27,4 @@ app.post("/signup", async(req,res)=>{
 } )
 
 
-app.listen(3000,()=>{console.log("listening at 3000")})
+app.listen(3002,()=>{console.log("listening at 3000")})
